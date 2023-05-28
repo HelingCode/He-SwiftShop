@@ -1,3 +1,4 @@
+
 package io.heling.swiftshop.starter.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
@@ -6,12 +7,6 @@ import org.springframework.context.annotation.Bean;
 
 import java.sql.SQLException;
 
-/**
- * @author heling
- * @version 1.0.0
- * @date 2023/5/27 14:44
- * @description
- */
 public class JdbcConfig {
     @Value("${jdbc.initialSize}")
     private int initialSize;
@@ -62,4 +57,3 @@ public class JdbcConfig {
         return dataSource;
     }
 }
-
