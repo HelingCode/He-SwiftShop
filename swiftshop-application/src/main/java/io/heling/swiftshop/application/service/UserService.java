@@ -16,4 +16,12 @@ public interface UserService {
      * @return
      */
     SwiftShopUser getUserByUserName(String userName);
+
+    /**
+     * 登录
+     * @param userName
+     * @param password
+     * @return
+     */
+    String login(String userName, String password);
 }

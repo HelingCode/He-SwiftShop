@@ -3,6 +3,8 @@ package io.heling.swiftshop.interfaces.controller;
 import com.sun.xml.internal.ws.client.sei.ResponseBuilder;
 import io.heling.swiftshop.application.service.UserService;
 import io.heling.swiftshop.domain.code.ErrorCode;
+import io.heling.swiftshop.domain.code.HttpCode;
+import io.heling.swiftshop.domain.dto.UserDTO;
 import io.heling.swiftshop.domain.model.SwiftShopUser;
 import io.heling.swiftshop.domain.response.ResponseMessage;
 import io.heling.swiftshop.domain.response.ResponseMessageBuilder;
@@ -26,5 +28,11 @@ public class UserController {
     @RequestMapping(value = "/get", method = {RequestMethod.GET, RequestMethod.POST})
     public ResponseMessage<SwiftShopUser> getUser(@RequestParam(value = "username") String userName) {
         return ResponseMessageBuilder.build(ErrorCode.SUCCESS.getCode(),userService.getUserByUserName(userName));
+    }
+
+    @RequestMapping(value = "/login", method = {RequestMethod.GET, RequestMethod.POST})
+    public ResponseMessage<String> login(@RequestBody UserDTO userDTO){
+        String token = userService.login(userDTO.getUserName(), userDTO.getPassword());
+        return ResponseMessageBuilder.build(HttpCode.SUCCESS.getCode(),token);
     }
 }

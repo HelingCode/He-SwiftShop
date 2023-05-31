@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @MapperScan(value = {"io.heling.swiftshop.infrastructure.mapper"})
 @ComponentScan(value = {"io.heling.swiftshop"})
 @PropertySource(value = {"classpath:properties/jdbc.properties", "classpath:properties/mybatis.properties"})
-@Import({JdbcConfig.class, MyBatisConfig.class})
+@Import({JdbcConfig.class, MyBatisConfig.class, RedisConfig.class})
 @EnableTransactionManagement(proxyTargetClass = true)
 public class TransactionConfig {
 
