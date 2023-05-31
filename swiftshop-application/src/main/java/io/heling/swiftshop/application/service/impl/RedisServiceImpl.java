@@ -3,6 +3,7 @@ package io.heling.swiftshop.application.service.impl;
 import io.heling.swiftshop.application.service.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Service;
 
 /**
  * @author heling
@@ -10,6 +11,7 @@ import org.springframework.data.redis.core.RedisTemplate;
  * @date 2023/5/31 16:53
  * @description
  */
+@Service
 public class RedisServiceImpl implements RedisService {
 
     @Autowired

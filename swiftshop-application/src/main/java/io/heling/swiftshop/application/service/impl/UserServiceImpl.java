@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @Resource
+    @Autowired
     private RedisService redisService;
 
     @Override
