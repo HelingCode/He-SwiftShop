@@ -56,8 +56,14 @@ public class UserServiceImpl implements UserService {
         String token = JwtUtils.sign(user.getId());
         String key = Constants.getKey(Constants.USER_KEY_PREFIX, String.valueOf(user.getId()));
         //缓存到Redis
-        redisService.set(key,token);
+        redisService.set(key,user);
         //返回token
         return token;
+    }
+
+    @Override
+    public SwiftShopUser getUserByUserId(Long userId) {
+        String key = Constants.getKey(Constants.USER_KEY_PREFIX, String.valueOf(userId));
+        return (SwiftShopUser) redisService.get(key);
     }
 }

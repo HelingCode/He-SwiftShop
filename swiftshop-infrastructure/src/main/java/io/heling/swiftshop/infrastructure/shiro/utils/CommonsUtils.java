@@ -27,11 +27,11 @@ public class CommonsUtils {
     /**
      * 使用md5加密
      * @param password 需要加密的密码
-     * @param phoneNumber 手机号
+     * @param userName 用户名
      * @return 返回加密后的密码
      */
-    public static String encryptPassword(String password, String phoneNumber){ //userId作为盐值
-        return String.valueOf(new SimpleHash("MD5", password, phoneNumber, 1024));
+    public static String encryptPassword(String password, String userName){ //userName作为盐值
+        return String.valueOf(new SimpleHash("MD5", password, userName, 1024));
     }
 
     /**
@@ -41,7 +41,7 @@ public class CommonsUtils {
 //        return Integer.parseInt(request.getAttribute(BaseConstants.USER_ID).toString());
 //    }
     public static void main(String[] args) {
-		for(int i = 0; i < 100; i ++) {
+		for(int i = 0; i < 1; i ++) {
 			System.out.println(encryptPassword("123456", "heling"));
 		}
 	}

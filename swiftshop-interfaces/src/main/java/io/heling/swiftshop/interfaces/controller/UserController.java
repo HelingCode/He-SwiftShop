@@ -26,8 +26,8 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = "/get", method = {RequestMethod.GET, RequestMethod.POST})
-    public ResponseMessage<SwiftShopUser> getUser(@RequestParam(value = "username") String userName) {
-        return ResponseMessageBuilder.build(ErrorCode.SUCCESS.getCode(),userService.getUserByUserName(userName));
+    public ResponseMessage<SwiftShopUser> getUser(@RequestAttribute Long userId){
+        return ResponseMessageBuilder.build(HttpCode.SUCCESS.getCode(), userService.getUserByUserId(userId));
     }
 
     @RequestMapping(value = "/login", method = {RequestMethod.GET, RequestMethod.POST})

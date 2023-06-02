@@ -24,4 +24,9 @@ public interface UserService {
      * @return
      */
     String login(String userName, String password);
+
+    /**
+     * 根据用户id获取用户信息
+     */
+    SwiftShopUser getUserByUserId(Long userId);
 }
